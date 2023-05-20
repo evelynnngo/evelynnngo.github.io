@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Testing Website Design</title>
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width = device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Tangerine" rel="stylesheet">
+    <link href="<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
+    <link rel="icon" type="image/jpg" href="icons8-pixel-star-50.png">
+</head>
+<body>
+    <section id="banner">
+        <div class="banner-text">
+    <!--        <img src="https://cdn.discordapp.com/attachments/802337555827392512/1098115537168519188/193-1930185_constellations-drawing-at-getdrawings-circle-removebg-preview.png">-->
+            <a href="https://www.nasa.gov/subject/6892/stars/" target="_blank">
+                <img src="193-1930185_constellations-drawing-at-getdrawings-circle-removebg-preview.png">
+            </a>
+            <h1>About</h1>
+            <p>Just a website for Comp Sci</p>
+        </div>
+    </section>
+    
+<div id="sideNav">
+    <nav>
+    <ul>
+        <li><a class='active' href="index.html">Home</a></li>
+        <li><a class='active' href="about.html">About</a></li>
+        <li><a class='active' href="random.html">˗ˏˋ ★ ˎˊ˗</a></li>
+        <li><a class='active' href="Zodiacs.html">Zodiacs</a></li>
+        <li><a class='active' href="Constellations.html">Constellations</a></li>
+    </ul>    
+    </nav>
+</div>
+
+<div id="menuBtn">
+    <img src="https://media.discordapp.net/attachments/802337555827392512/1038267253579317348/unknown.png" id="menu">
+</div>
+
+<script>
+var menuBtn = document.getElementById("menuBtn")
+var sideNav = document.getElementById("sideNav")
+var menu = document.getElementById("menu")
+
+sideNav.style.right = "-250px";
+
+menuBtn.onclick = function(){
+    if(sideNav.style.right == "-250px"){
+        sideNav.style.right = "0";
+        menu.src = "https://cdn.discordapp.com/attachments/802337555827392512/1038274427856621629/unknown.png";
+    }
+    else{
+        sideNav.style.right = "-250px";
+        menu.src = "https://media.discordapp.net/attachments/802337555827392512/1038267253579317348/unknown.png";
+    }
+}
+</script>
+
+
+</body>
+</html>

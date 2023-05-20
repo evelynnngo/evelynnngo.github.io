@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Star Collector</title>
+    <style>
+      body {
+        margin: 0;
+        overflow: hidden;
+      }
+  
+      canvas {
+        background-color: black;
+      }
+    </style>
+    <title>Testing Website Design</title>
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width = device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Tangerine" rel="stylesheet">
+    <link href="<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
+    <link rel="icon" type="image/jpg" href="icons8-pixel-star-50.png">
+</head>
+<body>
+    <canvas id="gameCanvas"></canvas>
+<section id="banner">
+    <div class="banner-text">
+<!--        <img src="https://cdn.discordapp.com/attachments/802337555827392512/1098115537168519188/193-1930185_constellations-drawing-at-getdrawings-circle-removebg-preview.png">-->
+        <a href="https://www.nasa.gov/subject/6892/stars/" target="_blank">
+            <img src="193-1930185_constellations-drawing-at-getdrawings-circle-removebg-preview.png">
+        </a>
+        <h1>˗ˏˋ ★ ˎˊ˗</h1>
+        <p>Just a website for Comp Sci</p>
+    </div>
+</section>
+    
+<div id="sideNav">
+    <nav>
+    <ul>
+        <li><a class='active' href="index.html">Home</a></li>
+        <li><a class='active' href="about.html">About</a></li>
+        <li><a class='active' href="random.html">˗ˏˋ ★ ˎˊ˗</a></li>
+        <li><a class='active' href="Zodiacs.html">Zodiacs</a></li>
+        <li><a class='active' href="Constellations.html">Constellations</a></li>
+    </ul>    
+    </nav>
+</div>
+
+<div id="menuBtn">
+    <img src="https://media.discordapp.net/attachments/802337555827392512/1038267253579317348/unknown.png" id="menu">
+</div>
+
+<script>
+    // Set up the canvas
+    const canvas = document.getElementById("gameCanvas");
+    const ctx = canvas.getContext("2d");
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    // Create a star object
+    function Star(x, y, radius, speed) {
+      this.x = x;
+      this.y = y;
+      this.radius = radius;
+      this.speed = speed;
+    }
+
+    // Draw a star on the canvas
+    Star.prototype.draw = function() {
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+      ctx.fillStyle = "white";
+      ctx.fill();
+      ctx.closePath();
+    };
+
+    // Update star position
+    Star.prototype.update = function() {
+      this.y += this.speed;
+      if (this.y > canvas.height + this.radius) {
+        this.y = -this.radius;
+        this.x = Math.random() * canvas.width;
+      }
+    };
+
+    // Create an array of stars
+    const stars = [];
+    const numStars = 50;
+
+    for (let i = 0; i < numStars; i++) {
+      const x = Math.random() * canvas.width;
+      const y = Math.random() * canvas.height;
+      const radius = Math.random() * 3 + 1;
+      const speed = Math.random() * 3 + 1;
+      stars.push(new Star(x, y, radius, speed));
+    }
+
+    // Game loop
+    function gameLoop() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      for (let i = 0; i < numStars; i++) {
+        const star = stars[i];
+        star.draw();
+        star.update();
+      }
+
+      requestAnimationFrame(gameLoop);
+    }
+
+    // Start the game loop
+    gameLoop();
+var menuBtn = document.getElementById("menuBtn")
+var sideNav = document.getElementById("sideNav")
+var menu = document.getElementById("menu")
+
+sideNav.style.right = "-250px";
+
+menuBtn.onclick = function(){
+    if(sideNav.style.right == "-250px"){
+        sideNav.style.right = "0";
+        menu.src = "https://cdn.discordapp.com/attachments/802337555827392512/1038274427856621629/unknown.png";
+    }
+    else{
+        sideNav.style.right = "-250px";
+        menu.src = "https://media.discordapp.net/attachments/802337555827392512/1038267253579317348/unknown.png";
+    }
+}
+</script>
+
+
+</body>
+</html>
